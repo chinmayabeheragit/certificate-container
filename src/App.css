@@ -1,62 +1,135 @@
-.App {
-  text-align: center;
-  padding: 20px;
+/* General styles */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
 }
 
+.App {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Projects Container */
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
+/* Project Thumbnail */
 .project-thumbnail {
   text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.project-thumbnail:hover {
+  transform: translateY(-10px);
 }
 
 .project-img {
-  width: 150px;
-  height: 150px;
+  width: 150px; /* Reduced size */
+  height: 150px; /* Reduced size */
   object-fit: cover;
-  cursor: pointer;
   border-radius: 10px;
 }
 
+/* Add button */
 .add-button {
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-  background-color: #5cb85c;
+  width: 50px; /* Adjusted size */
+  height: 50px; /* Adjusted size */
+  font-size: 30px; /* Adjusted size */
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.add-button:hover {
+  background-color: #0056b3;
+  transform: rotate(90deg);
+}
+
+/* Form Container */
 .form-container {
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  padding: 20px; /* Reduced padding */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 350px; /* Reduced max width */
   margin: 20px auto;
 }
 
-button {
-  background-color: #5cb85c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
+/* Form Title */
+.form-container h2 {
+  font-size: 1.8rem; /* Adjusted size */
+  margin-bottom: 15px; /* Adjusted margin */
+  color: #007bff;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Input Styles */
+input[type="text"],
+input[type="url"],
+textarea,
+input[type="file"] {
+  width: 100%; /* Full width within the form */
+  padding: 10px; /* Reduced padding */
+  margin: 8px 0; /* Reduced margin */
+  border: none;
+  border-radius: 8px;
+  background-color: #f7f9fc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem; /* Smaller font size */
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styles */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px; /* Reduced padding */
+  font-size: 0.9rem; /* Smaller font size */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Additional Text Area Style */
+textarea {
+  resize: none; /* Disable resize for a cleaner look */
+  height: 80px; /* Set fixed height for text area */
 }

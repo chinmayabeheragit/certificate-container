@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddProjectForm = ({ onSubmit }) => {
   const [projectName, setProjectName] = useState('');
@@ -11,20 +12,35 @@ const AddProjectForm = ({ onSubmit }) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setProjectImage(reader.result);
+        setProjectImage(reader.result); // This is the data URL of the image
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({
+
+    const projectData = {
       name: projectName,
       link: projectLink,
       description: projectDescription,
-      image: projectImage,
-    });
+      image: projectImage, // This now holds the uploaded image data
+    };
+
+    try {
+      // Send data to backend
+      const response = await axios.post('http://localhost:5000/api/projects', projectData);
+      onSubmit(response.data); // Add the newly created project to the projects array
+    } catch (error) {
+      console.error('Error adding project:', error);
+    }
+
+    // Clear form fields
+    setProjectName('');
+    setProjectLink('');
+    setProjectDescription('');
+    setProjectImage(null);
   };
 
   return (

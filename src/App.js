@@ -13,13 +13,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Project Showcase</h1>
+      <h1>Achievements Showcase</h1>
       <div className="projects-container">
         {projects.map((project, index) => (
           <div key={index} className="project-thumbnail">
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <img src={project.image} alt={project.name} className="project-img" />
             </a>
+            <p>{project.name}</p> {/* Display project name below the image */}
           </div>
         ))}
         {!showForm && (
